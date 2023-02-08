@@ -48,9 +48,9 @@ if(option == 'All'):
         if(daerah_selection1):
             filter_sexRatio_2021 = df[df['Unit Kerja'].isin(daerah_selection1)]
             c1, c2 = st.columns(2)
-            st.subheader("Tahun 2021")
+            st.write('Tabel Sex Ratio Tahun 2021')
             st.bar_chart(filter_sexRatio_2021,x='Unit Kerja', y='sex ratio 2021')
-            st.subheader("Tahun 2022")
+            st.write('Tabel Sex Ratio Tahun 2022')
             st.bar_chart(filter_sexRatio_2021,x='Unit Kerja', y='sex ratio 2022')
                 
 

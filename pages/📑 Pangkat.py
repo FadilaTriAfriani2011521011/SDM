@@ -45,7 +45,6 @@ if(option == 'All'):
     
 
     # Selected option
-    st.write('Tabel Data Pangkat')
     if len(daerah_selection3) == 0 or len(daerah_selection3) == 1:
         st.warning('Pilih Minimal 2 Daerah!')
 
@@ -56,16 +55,22 @@ if(option == 'All'):
             c3, c4 = st.columns(2)
             c5, c6 = st.columns(2)
             with c1:
+                st.write('Tabel Pangkat Pegawai Golongan II Tahun 2021')
                 st.bar_chart(filter_Pangkat_2021,x='Unit Kerja', y='II 2021')
             with c2:
+                st.write('Tabel Pangkat Pegawai Golongan II Tahun 2022')
                 st.bar_chart(filter_Pangkat_2021,x='Unit Kerja', y='II 2022')
             with c3:
+                st.write('Tabel Pangkat Pegawai Golongan III Tahun 2021')
                 st.bar_chart(filter_Pangkat_2021,x='Unit Kerja', y='III 2021')
             with c4:
+                st.write('Tabel Pangkat Pegawai Golongan III Tahun 2022')
                 st.bar_chart(filter_Pangkat_2021,x='Unit Kerja', y='III 2022')
             with c5:
+                st.write('Tabel Pangkat Pegawai Golongan IV Tahun 2021')
                 st.bar_chart(filter_Pangkat_2021,x='Unit Kerja', y='IV 2021')
             with c6:
+                st.write('Tabel Pangkat Pegawai Golongan IV Tahun 2022')
                 st.bar_chart(filter_Pangkat_2021,x='Unit Kerja', y='IV 2022')
     
 elif(option == 'Daerah'):

@@ -44,7 +44,6 @@ if(option == 'All'):
     
 
     # Selected option
-    st.write('Tabel Data Jabatan')
     if len(daerah_selection5) == 0 or len(daerah_selection5) == 1:
         st.warning('Pilih Minimal 2 Daerah!')
 
@@ -54,12 +53,16 @@ if(option == 'All'):
             c1, c2 = st.columns(2)
             c3, c4 = st.columns(2)
             with c1:
+                st.write('Tabel Pegawai dengan Jabatan Fungsional Tahun 2021')
                 st.bar_chart(filtered_Jabatan_2021,x='Unit Kerja', y='Fungsional 2021')
             with c2:
+                st.write('Tabel Pegawai dengan Jabatan Fungsional Tahun 2022')
                 st.bar_chart(filtered_Jabatan_2021,x='Unit Kerja', y='Fungsional 2022')
             with c3:
+                st.write('Tabel Pegawai dengan Jabatan Struktural Tahun 2021')
                 st.bar_chart(filtered_Jabatan_2021,x='Unit Kerja', y='Struktural 2021')
             with c4:
+                st.write('Tabel Pegawai dengan Jabatan Struktural Tahun 2021')
                 st.bar_chart(filtered_Jabatan_2021,x='Unit Kerja', y='Struktural 2022')
 
 elif(option == 'Daerah'):

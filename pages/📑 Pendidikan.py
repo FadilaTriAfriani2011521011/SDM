@@ -45,7 +45,6 @@ if(option == 'All'):
     
 
     # Selected option
-    st.write('Tabel Data Pendidikan')
     if len(daerah_selection2) == 0 or len(daerah_selection2) == 1:
         st.warning('Pilih Minimal 2 Daerah!')
 
@@ -58,20 +57,28 @@ if(option == 'All'):
             c7, c8 = st.columns(2)
             
             with c1:
+                st.write('Tabel Pegawai Tamatan Sarjana Tahun 2021')
                 st.bar_chart(filter_Pendidikan_2021,x='Unit Kerja', y='Sarjana 2021')
             with c2:
+                st.write('Tabel Pegawai Tamatan Sarjana Tahun 2022')
                 st.bar_chart(filter_Pendidikan_2021,x='Unit Kerja', y='Sarjana 2022')
             with c3:
+                st.write('Tabel Pegawai Tamatan Diploma Tahun 2021')
                 st.bar_chart(filter_Pendidikan_2021,x='Unit Kerja', y='Diploma 2021')
             with c4:
+                st.write('Tabel Pegawai Tamatan Diploma Tahun 2021')
                 st.bar_chart(filter_Pendidikan_2021,x='Unit Kerja', y='Diploma 2022')
             with c5:
+                st.write('Tabel Pegawai Tamatan SMA Tahun 2021')
                 st.bar_chart(filter_Pendidikan_2021,x='Unit Kerja', y='SMA 2021')
             with c6:
+                st.write('Tabel Pegawai Tamatan SMA Tahun 2021')
                 st.bar_chart(filter_Pendidikan_2021,x='Unit Kerja', y='SMA 2022')
             with c7:
+                st.write('Tabel Pegawai Tamatan SMP Tahun 2021')
                 st.bar_chart(filter_Pendidikan_2021,x='Unit Kerja', y='SMP 2021')
             with c8:
+                st.write('Tabel Pegawai Tamatan SMP Tahun 2021')
                 st.bar_chart(filter_Pendidikan_2021,x='Unit Kerja', y='SMP 2022')
 
 elif(option == 'Daerah'):
