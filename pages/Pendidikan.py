@@ -7,6 +7,9 @@ import plotly.subplots as sp
 import subprocess
 import sys
 from streamlit_option_menu import option_menu
+import plotly.express as px
+import plotly.graph_objects as go
+import matplotlib.pyplot as plt
 
 st.set_page_config(page_title='Data Pendidikan', page_icon=':bar_chart:', layout='wide')
 st.title('Data Pendidikan Pegawai BPS se-Provinsi Sumatera Barat')
@@ -57,26 +60,26 @@ if(option == 'All'):
 
     else:
         if(daerah_selection2):
-            filtered_df = df[df['Unit Kerja'].isin(daerah_selection2)]
-            #  c1, c2 = st.columns(2)
-            # with c1:
-            #     plt.bar(filter_Pendidikan_2021['Unit Kerja'].values,
-            #             filter_Pendidikan_2021['sex ratio 2021'].values)
-            #     plt.xlabel("Unit Kerja")
-            #     plt.ylabel("Value")
-            #     plt.title("Sex Ratio 2021")
-            #     plt.xticks(rotation=90)
-            #     st.pyplot()
-            #     st.set_option('deprecation.showPyplotGlobalUse', False)
-            # with c2:
-            #     plt.bar(filter_sexRatio_2021['Unit Kerja'].values,
-            #             filter_sexRatio_2021['sex ratio 2022'].values)
-            #     plt.xlabel("Unit Kerja")
-            #     plt.ylabel("Value")
-            #     plt.title("Sex Ratio 2022")
-            #     plt.xticks(rotation=90)
-            #     st.pyplot()
-            #     st.set_option('deprecation.showPyplotGlobalUse', False)
+            filter_Pendidikan_2021 = df[df['Unit Kerja'].isin(daerah_selection2)]
+            c1, c2 = st.columns(2)
+            with c1:
+                plt.bar(filter_Pendidikan_2021['Unit Kerja'].values,
+                        filter_Pendidikan_2021['Sarjana 2021'].values)
+                plt.xlabel("Unit Kerja")
+                plt.ylabel("Value")
+                plt.title("Sarjana 2021")
+                plt.xticks(rotation=90)
+                st.pyplot()
+                st.set_option('deprecation.showPyplotGlobalUse', False)
+            with c2:
+                plt.bar(filter_Pendidikan_2021['Unit Kerja'].values,
+                        filter_Pendidikan_2021['Sarjana 2022'].values)
+                plt.xlabel("Unit Kerja")
+                plt.ylabel("Value")
+                plt.title("Sarjana 2022")
+                plt.xticks(rotation=90)
+                st.pyplot()
+                st.set_option('deprecation.showPyplotGlobalUse', False)
 
 elif(option == 'Daerah'):
     unit_kerja = df['Unit Kerja'].unique().tolist()
@@ -95,9 +98,9 @@ elif(option == 'Daerah'):
     totalSarjana2022 = df['Sarjana 2022'].sum()
     totalDiploma2022 = df['Diploma 2022'].sum()
     totalSMA2022 = df['SMA 2022'].sum()
-    totalSMP2022 = df['SMP 2022'].sum()
+    # totalSMP2022 = df['SMP 2022'].sum()
     
-    
+
     with m1:
         m1.metric(label ='Jumlah Sarjana 2022',value = int(to['Sarjana 2022']), delta= perSarjana2)
         m1.metric(label ='Jumlah Sarjana 2022 se-Provinsi Sumbar',value = totalSarjana2022)
@@ -109,7 +112,7 @@ elif(option == 'Daerah'):
          m3.metric(label ='Jumlah SMA 2022 se-Provinsi Sumbar',value = totalSMA2022)
     with m4:
           m4.metric(label ='Jumlah SMP 2022',value = int(to['SMP 2022']), delta= perSMP2)
-          m4.metric(label ='Jumlah SMP 2022 se-Provinsi Sumbar',value = totalSMP2022)
+        #   m4.metric(label ='Jumlah SMP 2022 se-Provinsi Sumbar',value = totalSMP2022)
    
     
     # ----- MANIPULATION for Man -----
