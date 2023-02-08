@@ -31,7 +31,7 @@ sheet_name2 = 'Pendidikan'
 # ===== Pendidikan =====
 df = pd.read_excel(excel_file,
                    sheet_name=sheet_name2,
-                   usecols='A:K',
+                   usecols='A:R',
                    header=0)
 df_participants = pd.read_excel(excel_file,
                                 sheet_name= sheet_name2,
@@ -62,6 +62,9 @@ if(option == 'All'):
         if(daerah_selection2):
             filter_Pendidikan_2021 = df[df['Unit Kerja'].isin(daerah_selection2)]
             c1, c2 = st.columns(2)
+            c3, c4 = st.columns(2)
+            c5, c6 = st.columns(2)
+            c7, c8 = st.columns(2)
             with c1:
                 plt.bar(filter_Pendidikan_2021['Unit Kerja'].values,
                         filter_Pendidikan_2021['Sarjana 2021'].values)
@@ -77,6 +80,60 @@ if(option == 'All'):
                 plt.xlabel("Unit Kerja")
                 plt.ylabel("Value")
                 plt.title("Sarjana 2022")
+                plt.xticks(rotation=90)
+                st.pyplot()
+                st.set_option('deprecation.showPyplotGlobalUse', False)
+            with c3:
+                plt.bar(filter_Pendidikan_2021['Unit Kerja'].values,
+                        filter_Pendidikan_2021['Diploma 2021'].values)
+                plt.xlabel("Unit Kerja")
+                plt.ylabel("Value")
+                plt.title("Diploma 2021")
+                plt.xticks(rotation=90)
+                st.pyplot()
+                st.set_option('deprecation.showPyplotGlobalUse', False)
+            with c4:
+                plt.bar(filter_Pendidikan_2021['Unit Kerja'].values,
+                        filter_Pendidikan_2021['Diploma 2022'].values)
+                plt.xlabel("Unit Kerja")
+                plt.ylabel("Value")
+                plt.title("Diploma 2022")
+                plt.xticks(rotation=90)
+                st.pyplot()
+                st.set_option('deprecation.showPyplotGlobalUse', False)
+            with c5:
+                plt.bar(filter_Pendidikan_2021['Unit Kerja'].values,
+                        filter_Pendidikan_2021['SMA 2021'].values)
+                plt.xlabel("Unit Kerja")
+                plt.ylabel("Value")
+                plt.title("SMA 2021")
+                plt.xticks(rotation=90)
+                st.pyplot()
+                st.set_option('deprecation.showPyplotGlobalUse', False)
+            with c6:
+                plt.bar(filter_Pendidikan_2021['Unit Kerja'].values,
+                        filter_Pendidikan_2021['SMA 2022'].values)
+                plt.xlabel("Unit Kerja")
+                plt.ylabel("Value")
+                plt.title("SMA 2022")
+                plt.xticks(rotation=90)
+                st.pyplot()
+                st.set_option('deprecation.showPyplotGlobalUse', False)
+            with c7:
+                plt.bar(filter_Pendidikan_2021['Unit Kerja'].values,
+                        filter_Pendidikan_2021['SMP 2021'].values)
+                plt.xlabel("Unit Kerja")
+                plt.ylabel("Value")
+                plt.title("SMP 2021")
+                plt.xticks(rotation=90)
+                st.pyplot()
+                st.set_option('deprecation.showPyplotGlobalUse', False)
+            with c8:
+                plt.bar(filter_Pendidikan_2021['Unit Kerja'].values,
+                        filter_Pendidikan_2021['SMP 2022'].values)
+                plt.xlabel("Unit Kerja")
+                plt.ylabel("Value")
+                plt.title("SMP 2022")
                 plt.xticks(rotation=90)
                 st.pyplot()
                 st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -98,7 +155,7 @@ elif(option == 'Daerah'):
     totalSarjana2022 = df['Sarjana 2022'].sum()
     totalDiploma2022 = df['Diploma 2022'].sum()
     totalSMA2022 = df['SMA 2022'].sum()
-    # totalSMP2022 = df['SMP 2022'].sum()
+    totalSMP2022 = df['SMP 2022'].sum()
     
 
     with m1:
@@ -112,7 +169,7 @@ elif(option == 'Daerah'):
          m3.metric(label ='Jumlah SMA 2022 se-Provinsi Sumbar',value = totalSMA2022)
     with m4:
           m4.metric(label ='Jumlah SMP 2022',value = int(to['SMP 2022']), delta= perSMP2)
-        #   m4.metric(label ='Jumlah SMP 2022 se-Provinsi Sumbar',value = totalSMP2022)
+          m4.metric(label ='Jumlah SMP 2022 se-Provinsi Sumbar',value = totalSMP2022)
    
     
     # ----- MANIPULATION for Man -----

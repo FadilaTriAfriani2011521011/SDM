@@ -57,28 +57,64 @@ if(option == 'All'):
 
     else:
         if(daerah_selection3):
-            filtered_df = df[df['Unit Kerja'].isin(daerah_selection3)]
-            st.write(filtered_df)
+            filter_Pangkat_2021 = df[df['Unit Kerja'].isin(daerah_selection3)]
+            c1, c2 = st.columns(2)
+            with c1:
+                plt.bar(filter_Pangkat_2021['Unit Kerja'].values,
+                        filter_Pangkat_2021['II 2021'].values)
+                plt.xlabel("Unit Kerja")
+                plt.ylabel("Value")
+                plt.title("Sarjana 2021")
+                plt.xticks(rotation=90)
+                st.pyplot()
+                st.set_option('deprecation.showPyplotGlobalUse', False)
+            with c2:
+                plt.bar(filter_Pendidikan_2021['Unit Kerja'].values,
+                        filter_Pendidikan_2021['Sarjana 2022'].values)
+                plt.xlabel("Unit Kerja")
+                plt.ylabel("Value")
+                plt.title("Sarjana 2022")
+                plt.xticks(rotation=90)
+                st.pyplot()
+                st.set_option('deprecation.showPyplotGlobalUse', False)
 
-elif(option == 'Daerah'):
-    daerah3 = df['Unit Kerja'].unique().tolist()
-    daerah_selection3 = st.selectbox('Pilih Daerah : ', daerah3)
-    m1,m2,m3,m4 = st.columns((1,1,1,1))
-    todf = pd.read_excel('pegawai.xlsx',sheet_name = 'Pangkat')
-    to = todf[(todf['Unit Kerja']==daerah_selection3)]
-    m1.metric(label ='Golongan II/a',value = int(to['II/a']))
-    m1.metric(label ='Golongan II/b',value = int(to['II/b']))
-    m1.metric(label ='Golongan II/c',value = int(to['II/c']))
-    m1.metric(label ='Golongan II/d',value = int(to['II/d']))
-    m2.metric(label ='Golongan III/a',value = int(to['III/a']))
-    m2.metric(label ='Golongan III/b',value = int(to['III/b']))
-    m2.metric(label ='Golongan III/c',value = int(to['III/c']))
-    m2.metric(label ='Golongan III/d',value = int(to['III/d']))
-    m3.metric(label ='Golongan IV/a',value = int(to['IV/a']))
-    m3.metric(label ='Golongan IV/b',value = int(to['IV/b']))
-    m3.metric(label ='Golongan IV/c',value = int(to['IV/c']))
-    m3.metric(label ='Golongan IV/d',value = int(to['IV/d']))
-    m4.metric(label ='Total',value = int(to['Total']))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# elif(option == 'Daerah'):
+#     daerah3 = df['Unit Kerja'].unique().tolist()
+#     daerah_selection3 = st.selectbox('Pilih Daerah : ', daerah3)
+#     m1,m2,m3,m4 = st.columns((1,1,1,1))
+#     todf = pd.read_excel('pegawai.xlsx',sheet_name = 'Pangkat')
+#     to = todf[(todf['Unit Kerja']==daerah_selection3)]
+#     m1.metric(label ='Golongan II/a',value = int(to['II/a']))
+#     m1.metric(label ='Golongan II/b',value = int(to['II/b']))
+#     m1.metric(label ='Golongan II/c',value = int(to['II/c']))
+#     m1.metric(label ='Golongan II/d',value = int(to['II/d']))
+#     m2.metric(label ='Golongan III/a',value = int(to['III/a']))
+#     m2.metric(label ='Golongan III/b',value = int(to['III/b']))
+#     m2.metric(label ='Golongan III/c',value = int(to['III/c']))
+#     m2.metric(label ='Golongan III/d',value = int(to['III/d']))
+#     m3.metric(label ='Golongan IV/a',value = int(to['IV/a']))
+#     m3.metric(label ='Golongan IV/b',value = int(to['IV/b']))
+#     m3.metric(label ='Golongan IV/c',value = int(to['IV/c']))
+#     m3.metric(label ='Golongan IV/d',value = int(to['IV/d']))
+#     m4.metric(label ='Total',value = int(to['Total']))
 
 
 
