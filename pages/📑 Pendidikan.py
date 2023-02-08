@@ -1,15 +1,6 @@
 #Libraries
 import streamlit as st
 import pandas as pd
-import plotly.express as px
-import plotly.graph_objects as go
-import plotly.subplots as sp
-import subprocess
-import sys
-from streamlit_option_menu import option_menu
-import plotly.express as px
-import plotly.graph_objects as go
-import matplotlib.pyplot as plt
 
 st.set_page_config(page_title='Data Pendidikan', page_icon=':bar_chart:', layout='wide')
 st.title('Data Pendidikan Pegawai BPS se-Provinsi Sumatera Barat')
@@ -65,78 +56,23 @@ if(option == 'All'):
             c3, c4 = st.columns(2)
             c5, c6 = st.columns(2)
             c7, c8 = st.columns(2)
+            
             with c1:
-                plt.bar(filter_Pendidikan_2021['Unit Kerja'].values,
-                        filter_Pendidikan_2021['Sarjana 2021'].values)
-                plt.xlabel("Unit Kerja")
-                plt.ylabel("Value")
-                plt.title("Sarjana 2021")
-                plt.xticks(rotation=90)
-                st.pyplot()
-                st.set_option('deprecation.showPyplotGlobalUse', False)
+                st.bar_chart(filter_Pendidikan_2021,x='Unit Kerja', y='Sarjana 2021')
             with c2:
-                plt.bar(filter_Pendidikan_2021['Unit Kerja'].values,
-                        filter_Pendidikan_2021['Sarjana 2022'].values)
-                plt.xlabel("Unit Kerja")
-                plt.ylabel("Value")
-                plt.title("Sarjana 2022")
-                plt.xticks(rotation=90)
-                st.pyplot()
-                st.set_option('deprecation.showPyplotGlobalUse', False)
+                st.bar_chart(filter_Pendidikan_2021,x='Unit Kerja', y='Sarjana 2022')
             with c3:
-                plt.bar(filter_Pendidikan_2021['Unit Kerja'].values,
-                        filter_Pendidikan_2021['Diploma 2021'].values)
-                plt.xlabel("Unit Kerja")
-                plt.ylabel("Value")
-                plt.title("Diploma 2021")
-                plt.xticks(rotation=90)
-                st.pyplot()
-                st.set_option('deprecation.showPyplotGlobalUse', False)
+                st.bar_chart(filter_Pendidikan_2021,x='Unit Kerja', y='Diploma 2021')
             with c4:
-                plt.bar(filter_Pendidikan_2021['Unit Kerja'].values,
-                        filter_Pendidikan_2021['Diploma 2022'].values)
-                plt.xlabel("Unit Kerja")
-                plt.ylabel("Value")
-                plt.title("Diploma 2022")
-                plt.xticks(rotation=90)
-                st.pyplot()
-                st.set_option('deprecation.showPyplotGlobalUse', False)
+                st.bar_chart(filter_Pendidikan_2021,x='Unit Kerja', y='Diploma 2022')
             with c5:
-                plt.bar(filter_Pendidikan_2021['Unit Kerja'].values,
-                        filter_Pendidikan_2021['SMA 2021'].values)
-                plt.xlabel("Unit Kerja")
-                plt.ylabel("Value")
-                plt.title("SMA 2021")
-                plt.xticks(rotation=90)
-                st.pyplot()
-                st.set_option('deprecation.showPyplotGlobalUse', False)
+                st.bar_chart(filter_Pendidikan_2021,x='Unit Kerja', y='SMA 2021')
             with c6:
-                plt.bar(filter_Pendidikan_2021['Unit Kerja'].values,
-                        filter_Pendidikan_2021['SMA 2022'].values)
-                plt.xlabel("Unit Kerja")
-                plt.ylabel("Value")
-                plt.title("SMA 2022")
-                plt.xticks(rotation=90)
-                st.pyplot()
-                st.set_option('deprecation.showPyplotGlobalUse', False)
+                st.bar_chart(filter_Pendidikan_2021,x='Unit Kerja', y='SMA 2022')
             with c7:
-                plt.bar(filter_Pendidikan_2021['Unit Kerja'].values,
-                        filter_Pendidikan_2021['SMP 2021'].values)
-                plt.xlabel("Unit Kerja")
-                plt.ylabel("Value")
-                plt.title("SMP 2021")
-                plt.xticks(rotation=90)
-                st.pyplot()
-                st.set_option('deprecation.showPyplotGlobalUse', False)
+                st.bar_chart(filter_Pendidikan_2021,x='Unit Kerja', y='SMP 2021')
             with c8:
-                plt.bar(filter_Pendidikan_2021['Unit Kerja'].values,
-                        filter_Pendidikan_2021['SMP 2022'].values)
-                plt.xlabel("Unit Kerja")
-                plt.ylabel("Value")
-                plt.title("SMP 2022")
-                plt.xticks(rotation=90)
-                st.pyplot()
-                st.set_option('deprecation.showPyplotGlobalUse', False)
+                st.bar_chart(filter_Pendidikan_2021,x='Unit Kerja', y='SMP 2022')
 
 elif(option == 'Daerah'):
     unit_kerja = df['Unit Kerja'].unique().tolist()

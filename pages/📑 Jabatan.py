@@ -1,15 +1,6 @@
 #Libraries
 import streamlit as st
 import pandas as pd
-import plotly.express as px
-import plotly.graph_objects as go
-import plotly.subplots as sp
-import subprocess
-import sys
-from streamlit_option_menu import option_menu
-import plotly.express as px
-import plotly.graph_objects as go
-import matplotlib.pyplot as plt
 
 st.set_page_config(page_title='Data Jabatan', page_icon=':bar_chart:', layout='wide')
 st.title('Data Jabatan Pegawai BPS se-Provinsi Sumatera Barat')
@@ -63,41 +54,13 @@ if(option == 'All'):
             c1, c2 = st.columns(2)
             c3, c4 = st.columns(2)
             with c1:
-                plt.bar(filtered_Jabatan_2021['Unit Kerja'].values,
-                        filtered_Jabatan_2021['Fungsional 2021'].values)
-                plt.xlabel("Unit Kerja")
-                plt.ylabel("Value")
-                plt.title("Jabatan Fungsional 2021")
-                plt.xticks(rotation=90)
-                st.pyplot()
-                st.set_option('deprecation.showPyplotGlobalUse', False)
+                st.bar_chart(filtered_Jabatan_2021,x='Unit Kerja', y='Fungsional 2021')
             with c2:
-                plt.bar(filtered_Jabatan_2021['Unit Kerja'].values,
-                        filtered_Jabatan_2021['Fungsional 2022'].values)
-                plt.xlabel("Unit Kerja")
-                plt.ylabel("Value")
-                plt.title("Jabatan Fungsional 2022")
-                plt.xticks(rotation=90)
-                st.pyplot()
-                st.set_option('deprecation.showPyplotGlobalUse', False)
+                st.bar_chart(filtered_Jabatan_2021,x='Unit Kerja', y='Fungsional 2022')
             with c3:
-                plt.bar(filtered_Jabatan_2021['Unit Kerja'].values,
-                        filtered_Jabatan_2021['Struktural 2021'].values)
-                plt.xlabel("Unit Kerja")
-                plt.ylabel("Value")
-                plt.title("Jabatan Struktural 2021")
-                plt.xticks(rotation=90)
-                st.pyplot()
-                st.set_option('deprecation.showPyplotGlobalUse', False)
+                st.bar_chart(filtered_Jabatan_2021,x='Unit Kerja', y='Struktural 2021')
             with c4:
-                plt.bar(filtered_Jabatan_2021['Unit Kerja'].values,
-                        filtered_Jabatan_2021['Struktural 2022'].values)
-                plt.xlabel("Unit Kerja")
-                plt.ylabel("Value")
-                plt.title("Jabatan Struktural 2022")
-                plt.xticks(rotation=90)
-                st.pyplot()
-                st.set_option('deprecation.showPyplotGlobalUse', False)
+                st.bar_chart(filtered_Jabatan_2021,x='Unit Kerja', y='Struktural 2022')
 
 elif(option == 'Daerah'):
     unit_kerja = df['Unit Kerja'].unique().tolist()

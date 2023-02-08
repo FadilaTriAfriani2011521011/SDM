@@ -1,15 +1,6 @@
 #Libraries
 import streamlit as st
 import pandas as pd
-import plotly.express as px
-import plotly.graph_objects as go
-import plotly.subplots as sp
-import subprocess
-import sys
-from streamlit_option_menu import option_menu
-import plotly.express as px
-import plotly.graph_objects as go
-import matplotlib.pyplot as plt
 
 st.set_page_config(page_title='Data Pangkat', page_icon=':bar_chart:', layout='wide')
 st.title('Data Pangkat Pegawai BPS se-Provinsi Sumatera Barat')
@@ -65,59 +56,17 @@ if(option == 'All'):
             c3, c4 = st.columns(2)
             c5, c6 = st.columns(2)
             with c1:
-                plt.bar(filter_Pangkat_2021['Unit Kerja'].values,
-                        filter_Pangkat_2021['II 2021'].values)
-                plt.xlabel("Unit Kerja")
-                plt.ylabel("Value")
-                plt.title("Golongan II 2021")
-                plt.xticks(rotation=90)
-                st.pyplot()
-                st.set_option('deprecation.showPyplotGlobalUse', False)
+                st.bar_chart(filter_Pangkat_2021,x='Unit Kerja', y='II 2021')
             with c2:
-                plt.bar(filter_Pangkat_2021['Unit Kerja'].values,
-                        filter_Pangkat_2021['II 2022'].values)
-                plt.xlabel("Unit Kerja")
-                plt.ylabel("Value")
-                plt.title("Golongan II 2022")
-                plt.xticks(rotation=90)
-                st.pyplot()
-                st.set_option('deprecation.showPyplotGlobalUse', False)
+                st.bar_chart(filter_Pangkat_2021,x='Unit Kerja', y='II 2022')
             with c3:
-                plt.bar(filter_Pangkat_2021['Unit Kerja'].values,
-                        filter_Pangkat_2021['III 2021'].values)
-                plt.xlabel("Unit Kerja")
-                plt.ylabel("Value")
-                plt.title("Golongan III 2021")
-                plt.xticks(rotation=90)
-                st.pyplot()
-                st.set_option('deprecation.showPyplotGlobalUse', False)
+                st.bar_chart(filter_Pangkat_2021,x='Unit Kerja', y='III 2021')
             with c4:
-                plt.bar(filter_Pangkat_2021['Unit Kerja'].values,
-                        filter_Pangkat_2021['III 2022'].values)
-                plt.xlabel("Unit Kerja")
-                plt.ylabel("Value")
-                plt.title("Golongan III 2022")
-                plt.xticks(rotation=90)
-                st.pyplot()
-                st.set_option('deprecation.showPyplotGlobalUse', False)
+                st.bar_chart(filter_Pangkat_2021,x='Unit Kerja', y='III 2022')
             with c5:
-                plt.bar(filter_Pangkat_2021['Unit Kerja'].values,
-                        filter_Pangkat_2021['IV 2021'].values)
-                plt.xlabel("Unit Kerja")
-                plt.ylabel("Value")
-                plt.title("Golongan IV 2021")
-                plt.xticks(rotation=90)
-                st.pyplot()
-                st.set_option('deprecation.showPyplotGlobalUse', False)
+                st.bar_chart(filter_Pangkat_2021,x='Unit Kerja', y='IV 2021')
             with c6:
-                plt.bar(filter_Pangkat_2021['Unit Kerja'].values,
-                        filter_Pangkat_2021['IV 2022'].values)
-                plt.xlabel("Unit Kerja")
-                plt.ylabel("Value")
-                plt.title("Golongan IV 2022")
-                plt.xticks(rotation=90)
-                st.pyplot()
-                st.set_option('deprecation.showPyplotGlobalUse', False)
+                st.bar_chart(filter_Pangkat_2021,x='Unit Kerja', y='IV 2022')
     
 elif(option == 'Daerah'):
     unit_kerja = df['Unit Kerja'].unique().tolist()
