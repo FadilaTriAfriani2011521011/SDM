@@ -193,27 +193,3 @@ elif(option == 'Daerah'):
     st.subheader("Line Golongan IV")
     st.line_chart(unit_kerja_Pangkat,  y='Value', use_container_width=True)
 
-    
-
-
-
-
-# elif(option == 'Daerah'):
-#     daerah3 = df['Unit Kerja'].unique().tolist()
-#     daerah_selection3 = st.selectbox('Pilih Daerah : ', daerah3)
-#     m1,m2,m3,m4 = st.columns((1,1,1,1))
-#     todf = pd.read_excel('pegawai.xlsx',sheet_name = 'Pangkat')
-#     to = todf[(todf['Unit Kerja']==daerah_selection3)]
-#     m1.metric(label ='Golongan II/a',value = int(to['II/a']))
-#     m1.metric(label ='Golongan II/b',value = int(to['II/b']))
-#     m1.metric(label ='Golongan II/c',value = int(to['II/c']))
-#     m1.metric(label ='Golongan II/d',value = int(to['II/d']))
-#     m2.metric(label ='Golongan III/a',value = int(to['III/a']))
-#     m2.metric(label ='Golongan III/b',value = int(to['III/b']))
-#     m2.metric(label ='Golongan III/c',value = int(to['III/c']))
-#     m2.metric(label ='Golongan III/d',value = int(to['III/d']))
-#     m3.metric(label ='Golongan IV/a',value = int(to['IV/a']))
-#     m3.metric(label ='Golongan IV/b',value = int(to['IV/b']))
-#     m3.metric(label ='Golongan IV/c',value = int(to['IV/c']))
-#     m3.metric(label ='Golongan IV/d',value = int(to['IV/d']))
-#     m4.metric(label ='Total',value = int(to['Total']))

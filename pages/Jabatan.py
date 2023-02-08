@@ -153,24 +153,6 @@ elif(option == 'Daerah'):
     st.subheader("Line Struktural")
     st.line_chart(unit_kerja_Jabatan,  y='Value', use_container_width=True)
 
-     
-
-
-
-
-
-# elif(option == 'Daerah'):
-#     daerah5 = df['Unit Kerja'].unique().tolist()
-#     daerah_selection5 = st.selectbox('Pilih Daerah : ', daerah5)
-#     m1,m2,m3,m4,m5,m6 = st.columns((1,1,1,1,1,1))
-#     todf = pd.read_excel('pegawai.xlsx',sheet_name = 'Jabatan')
-#     to = todf[(todf['Unit Kerja']==daerah_selection5)]
-#     m1.metric(label ='Fungsional Tertentu',value = int(to['Fungsional Tertentu']))
-#     m2.metric(label ='Fungsional Umum',value = int(to['Fungsional Umum']))
-#     m3.metric(label ='Pengawas',value = int(to['Pengawas']))
-#     m4.metric(label ='Administrator',value = int(to['Administrator']))
-#     m5.metric(label ='Pimpinan Tinggi Pratama',value = int(to['Pimpinan Tinggi Pratama']))
-#     m6.metric(label ='Total',value = int(to['Total']))
 
 
    

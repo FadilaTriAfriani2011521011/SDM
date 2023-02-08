@@ -233,26 +233,3 @@ elif(option == 'Daerah'):
     st.subheader("Line SMP")
     st.line_chart(unit_kerja_Pendidikan,  y='Value', use_container_width=True)
 
-    
-        
-
-    
-    
-   
-   
-
-# elif(option == 'Daerah'):
-#     daerah2 = df['Unit Kerja'].unique().tolist()
-#     daerah_selection2 = st.selectbox('Pilih Daerah : ', daerah2)
-#     m1,m2,m3,m4 = st.columns((1,1,1,1))
-#     todf = pd.read_excel('pegawai.xlsx',sheet_name = 'Pendidikan')
-#     to = todf[(todf['Unit Kerja']==daerah_selection2)]
-#     m1.metric(label ='Lulusan S3',value = int(to['S3']))
-#     m1.metric(label ='Lulusan S2',value = int(to['S2']))
-#     m1.metric(label ='Lulusan S1',value = int(to['S1']))
-#     m2.metric(label ='Lulusan Diploma',value = int(to['Diploma']))
-#     m3.metric(label ='Lulusan SMA',value = int(to['SMA']))
-#     m3.metric(label ='Lulusan SMP',value = int(to['SMP']))
-#     m3.metric(label ='Lulusan SD',value = int(to['SD ']))
-#     m4.metric(label ='Total',value = int(to['Total']))
-
