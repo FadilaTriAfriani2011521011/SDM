@@ -62,7 +62,7 @@ if(option == 'All'):
                 st.write('Tabel Pegawai dengan Jabatan Struktural Tahun 2021')
                 st.bar_chart(filtered_Jabatan_2021,x='Unit Kerja', y='Struktural 2021')
             with c4:
-                st.write('Tabel Pegawai dengan Jabatan Struktural Tahun 2021')
+                st.write('Tabel Pegawai dengan Jabatan Struktural Tahun 2022')
                 st.bar_chart(filtered_Jabatan_2021,x='Unit Kerja', y='Struktural 2022')
 
 elif(option == 'Daerah'):

@@ -66,19 +66,19 @@ if(option == 'All'):
                 st.write('Tabel Pegawai Tamatan Diploma Tahun 2021')
                 st.bar_chart(filter_Pendidikan_2021,x='Unit Kerja', y='Diploma 2021')
             with c4:
-                st.write('Tabel Pegawai Tamatan Diploma Tahun 2021')
+                st.write('Tabel Pegawai Tamatan Diploma Tahun 2022')
                 st.bar_chart(filter_Pendidikan_2021,x='Unit Kerja', y='Diploma 2022')
             with c5:
                 st.write('Tabel Pegawai Tamatan SMA Tahun 2021')
                 st.bar_chart(filter_Pendidikan_2021,x='Unit Kerja', y='SMA 2021')
             with c6:
-                st.write('Tabel Pegawai Tamatan SMA Tahun 2021')
+                st.write('Tabel Pegawai Tamatan SMA Tahun 2022')
                 st.bar_chart(filter_Pendidikan_2021,x='Unit Kerja', y='SMA 2022')
             with c7:
                 st.write('Tabel Pegawai Tamatan SMP Tahun 2021')
                 st.bar_chart(filter_Pendidikan_2021,x='Unit Kerja', y='SMP 2021')
             with c8:
-                st.write('Tabel Pegawai Tamatan SMP Tahun 2021')
+                st.write('Tabel Pegawai Tamatan SMP Tahun 2022')
                 st.bar_chart(filter_Pendidikan_2021,x='Unit Kerja', y='SMP 2022')
 
 elif(option == 'Daerah'):
