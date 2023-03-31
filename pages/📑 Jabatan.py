@@ -1,6 +1,7 @@
 #Libraries
 import streamlit as st
 import pandas as pd
+import plotly.express as px
 
 st.set_page_config(page_title='Data Jabatan', page_icon=':bar_chart:', layout='wide')
 st.title('Data Jabatan Pegawai BPS se-Provinsi Sumatera Barat')
@@ -50,20 +51,26 @@ if(option == 'All'):
     else:
         if(daerah_selection5):
             filtered_Jabatan_2021 = df[df['Unit Kerja'].isin(daerah_selection5)]
-            c1, c2 = st.columns(2)
-            c3, c4 = st.columns(2)
-            with c1:
-                st.write('Tabel Pegawai dengan Jabatan Fungsional Tahun 2021')
-                st.bar_chart(filtered_Jabatan_2021,x='Unit Kerja', y='Fungsional 2021')
-            with c2:
-                st.write('Tabel Pegawai dengan Jabatan Fungsional Tahun 2022')
-                st.bar_chart(filtered_Jabatan_2021,x='Unit Kerja', y='Fungsional 2022')
-            with c3:
-                st.write('Tabel Pegawai dengan Jabatan Struktural Tahun 2021')
-                st.bar_chart(filtered_Jabatan_2021,x='Unit Kerja', y='Struktural 2021')
-            with c4:
-                st.write('Tabel Pegawai dengan Jabatan Struktural Tahun 2022')
-                st.bar_chart(filtered_Jabatan_2021,x='Unit Kerja', y='Struktural 2022')
+
+            st.write('Tabel Pegawai dengan Jabatan Fungsional Tahun 2021')
+            fig1 = px.bar(filtered_Jabatan_2021, x='Unit Kerja', y='Fungsional 2021', color='Unit Kerja', range_y=[0,100])
+            fig1.update_layout(width=800)
+            st.write(fig1)
+
+            st.write('Tabel Pegawai dengan Jabatan Fungsional Tahun 2022')
+            fig2 = px.bar(filtered_Jabatan_2021, x='Unit Kerja', y='Fungsional 2022', color='Unit Kerja', range_y=[0,100])
+            fig2.update_layout(width=800)
+            st.write(fig2)
+
+            st.write('Tabel Pegawai dengan Jabatan Struktural Tahun 2021')
+            fig3 = px.bar(filtered_Jabatan_2021, x='Unit Kerja', y='Struktural 2021', color='Unit Kerja', range_y=[0,5])
+            fig3.update_layout(width=800)
+            st.write(fig3)
+
+            st.write('Tabel Pegawai dengan Jabatan Struktural Tahun 2022')
+            fig4 = px.bar(filtered_Jabatan_2021, x='Unit Kerja', y='Struktural 2022', color='Unit Kerja', range_y=[0,5])
+            fig4.update_layout(width=800)
+            st.write(fig4)
 
 elif(option == 'Daerah'):
     unit_kerja = df['Unit Kerja'].unique().tolist()
