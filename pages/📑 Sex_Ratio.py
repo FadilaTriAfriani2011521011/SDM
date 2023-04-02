@@ -1,6 +1,7 @@
 #Libraries
 import streamlit as st
 import pandas as pd
+import plotly.express as px
 
 st.set_page_config(page_title='Data Sex Ratio', page_icon=':bar_chart:', layout='wide')
 st.title('Data Sex Ratio Pegawai BPS se-Provinsi Sumatera Barat')
@@ -47,11 +48,16 @@ if(option == 'All'):
     else:
         if(daerah_selection1):
             filter_sexRatio_2021 = df[df['Unit Kerja'].isin(daerah_selection1)]
-            c1, c2 = st.columns(2)
-            st.write('Tabel Sex Ratio Tahun 2021')
-            st.bar_chart(filter_sexRatio_2021,x='Unit Kerja', y='sex ratio 2021')
-            st.write('Tabel Sex Ratio Tahun 2022')
-            st.bar_chart(filter_sexRatio_2021,x='Unit Kerja', y='sex ratio 2022')
+
+            st.subheader('Tabel Sex Ratio Tahun 2021')
+            fig1 = px.bar(filter_sexRatio_2021, x='Unit Kerja', y='sex ratio 2021', color='Unit Kerja', range_y=[0,250])
+            fig1.update_layout(width=900)
+            st.write(fig1)
+
+            st.subheader('Tabel Sex Ratio Tahun 2021')
+            fig2 = px.bar(filter_sexRatio_2021, x='Unit Kerja', y='sex ratio 2022', color='Unit Kerja', range_y=[0,250])
+            fig2.update_layout(width=900)
+            st.write(fig2)
                 
 
 elif(option == 'Daerah'):

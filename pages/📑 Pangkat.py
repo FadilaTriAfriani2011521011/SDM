@@ -1,6 +1,7 @@
 #Libraries
 import streamlit as st
 import pandas as pd
+import plotly.express as px
 
 st.set_page_config(page_title='Data Pangkat', page_icon=':bar_chart:', layout='wide')
 st.title('Data Pangkat Pegawai BPS se-Provinsi Sumatera Barat')
@@ -51,27 +52,36 @@ if(option == 'All'):
     else:
         if(daerah_selection3):
             filter_Pangkat_2021 = df[df['Unit Kerja'].isin(daerah_selection3)]
-            c1, c2 = st.columns(2)
-            c3, c4 = st.columns(2)
-            c5, c6 = st.columns(2)
-            with c1:
-                st.write('Tabel Pangkat Pegawai Golongan II Tahun 2021')
-                st.bar_chart(filter_Pangkat_2021,x='Unit Kerja', y='II 2021')
-            with c2:
-                st.write('Tabel Pangkat Pegawai Golongan II Tahun 2022')
-                st.bar_chart(filter_Pangkat_2021,x='Unit Kerja', y='II 2022')
-            with c3:
-                st.write('Tabel Pangkat Pegawai Golongan III Tahun 2021')
-                st.bar_chart(filter_Pangkat_2021,x='Unit Kerja', y='III 2021')
-            with c4:
-                st.write('Tabel Pangkat Pegawai Golongan III Tahun 2022')
-                st.bar_chart(filter_Pangkat_2021,x='Unit Kerja', y='III 2022')
-            with c5:
-                st.write('Tabel Pangkat Pegawai Golongan IV Tahun 2021')
-                st.bar_chart(filter_Pangkat_2021,x='Unit Kerja', y='IV 2021')
-            with c6:
-                st.write('Tabel Pangkat Pegawai Golongan IV Tahun 2022')
-                st.bar_chart(filter_Pangkat_2021,x='Unit Kerja', y='IV 2022')
+
+            st.subheader('Tabel Pangkat Pegawai Golongan II Tahun 2021')
+            fig1 = px.bar(filter_Pangkat_2021, x='Unit Kerja', y='II 2021', color='Unit Kerja', range_y=[0,10])
+            fig1.update_layout(width=900)
+            st.write(fig1)
+
+            st.subheader('Tabel Pangkat Pegawai Golongan II Tahun 2022')
+            fig2 = px.bar(filter_Pangkat_2021, x='Unit Kerja', y='II 2022', color='Unit Kerja', range_y=[0,10])
+            fig2.update_layout(width=900)
+            st.write(fig2)
+
+            st.subheader('Tabel Pangkat Pegawai Golongan III Tahun 2021')
+            fig3 = px.bar(filter_Pangkat_2021, x='Unit Kerja', y='III 2021', color='Unit Kerja', range_y=[0,60])
+            fig3.update_layout(width=900)
+            st.write(fig3)
+
+            st.subheader('Tabel Pangkat Pegawai Golongan III Tahun 2022')
+            fig4 = px.bar(filter_Pangkat_2021, x='Unit Kerja', y='III 2022', color='Unit Kerja', range_y=[0,60])
+            fig4.update_layout(width=900)
+            st.write(fig4)
+
+            st.subheader('Tabel Pangkat Pegawai Golongan IV Tahun 2021')
+            fig5 = px.bar(filter_Pangkat_2021, x='Unit Kerja', y='IV 2021', color='Unit Kerja', range_y=[0,20])
+            fig5.update_layout(width=900)
+            st.write(fig5)
+
+            st.subheader('Tabel Pangkat Pegawai Golongan IV Tahun 2021')
+            fig6 = px.bar(filter_Pangkat_2021, x='Unit Kerja', y='IV 2021', color='Unit Kerja', range_y=[0,20])
+            fig6.update_layout(width=900)
+            st.write(fig6)
     
 elif(option == 'Daerah'):
     unit_kerja = df['Unit Kerja'].unique().tolist()
